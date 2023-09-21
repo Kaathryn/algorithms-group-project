@@ -27,10 +27,13 @@ def genKey():
         if gcd(e, phi) != 1:
             e = random.randint(2, phi - 1)
     
-    print(e)
-    print(phi)
-    print(gcd(e, phi))
     #Find a d where ed is identical to 1 (mod phi)
+    d = random.randint(2, phi - 1)
+    while (e*d) % phi != 1:
+        if (e*d) % phi != 1:
+            d = random.randint(2, phi - 1)
+    
+    return n, e, d
     
 def Fermat(p = 137):
     '''Test if p is prime with Fermat\'s little theorem\n'''
